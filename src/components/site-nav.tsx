@@ -159,6 +159,7 @@ export function SiteNav() {
               type="button"
               onClick={() => (open ? closeMenu() : setOpen(true))}
               aria-label={open ? "Close menu" : "Open menu"}
+              aria-haspopup="dialog"
               aria-expanded={open}
               aria-controls="mobile-menu"
               className="press relative grid size-9 shrink-0 place-items-center overflow-hidden edge rounded-full bg-secondary text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none lg:hidden"
