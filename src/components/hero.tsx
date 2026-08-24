@@ -107,7 +107,7 @@ export function Hero() {
                     alt="Illustrated portrait of Mostafa Samir, a healthcare full-stack engineer"
                     width={1024}
                     height={1024}
-                    className="sticker-in relative mx-auto w-full max-w-sm rounded-[2rem] drop-shadow-[0_18px_30px_rgba(0,0,0,0.16)]"
+                    className="sticker-in relative mx-auto w-full max-w-sm rounded-[2rem] drop-shadow-[var(--shadow-image)]"
                     style={{ animationDelay: "260ms" }}
                   />
                 </div>

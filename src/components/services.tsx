@@ -32,7 +32,7 @@ export function Services() {
         <div className="grid gap-4 sm:grid-cols-2">
           {services.map((service, i) => (
             <Reveal key={service.title} variant="pop" delay={i * 90}>
-              <div className="slide-card card-hover h-full px-6 py-8 hover:shadow-[0_28px_60px_-32px_oklch(0.28_0.05_265_/_0.5)]">
+              <div className="slide-card card-hover h-full px-6 py-8 hover:shadow-[var(--shadow-raised)]">
                 <AnimatedWords
                   as="h3"
                   text={service.title}
