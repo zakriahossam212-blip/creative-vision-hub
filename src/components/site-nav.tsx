@@ -183,6 +183,9 @@ export function SiteNav() {
         <div
           id="mobile-menu"
           ref={panelRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
           inert={!open ? true : undefined}
           className={`grid overflow-hidden lg:hidden ${panelMotion} ${
             open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
