@@ -76,7 +76,7 @@ export function About() {
           <ol className="mt-6 space-y-6">
             {timeline.map((item, i) => (
               <li key={item.role} className="relative pl-8">
-                <span className="absolute top-1.5 left-0 grid size-5 place-items-center rounded-full border-2 border-primary bg-card">
+                <span className="absolute top-1.5 left-0 grid size-5 place-items-center rounded-full ring-2 ring-border-strong bg-card">
                   <span className="size-1.5 rounded-full bg-brand-orange" />
                 </span>
                 {i < timeline.length - 1 && (

@@ -129,10 +129,14 @@
 
   --shadow-slide: 0 24px 60px -28px oklch(0.28 0.05 265 / 0.28);
   --shadow-lift: 0 12px 30px -16px oklch(0.28 0.05 265 / 0.35);
+  --shadow-float: 0 18px 40px -22px oklch(0.28 0.05 265 / 0.55);
+  --shadow-raised: 0 28px 60px -32px oklch(0.28 0.05 265 / 0.5);
+  --shadow-image: 0 18px 30px oklch(0.28 0.05 265 / 0.16);
 
   /*
-   * Realistic edges are three layers, never one hard line:
+   * Realistic edges are layered, never one hard line:
    * a top light catch, a hairline seam, and a short ambient contact shadow.
+   * Inset surfaces catch light on the bottom edge instead.
    */
   --edge-highlight: oklch(1 0 0 / 0.85);
   --edge-seam: color-mix(in oklab, var(--border-strong) 85%, transparent);
@@ -141,16 +145,30 @@
   --shadow-edge:
     inset 0 1px 0 var(--edge-highlight), 0 1px 1px -0.5px oklch(0.28 0.05 265 / 0.08),
     0 8px 22px -18px oklch(0.28 0.05 265 / 0.5);
+  --shadow-inset:
+    inset 0 1px 2px oklch(0.28 0.05 265 / 0.06),
+    inset 0 -1px 0 var(--edge-highlight);
 }
 
 /*
  * Edge utilities — use these instead of `border border-border` on surfaces.
- * hairline : one sub-pixel seam, no depth. For dividers and small pills.
- * edge     : seam + top light catch. For chips, inputs, secondary buttons.
- * edge-card: seam + light catch + ambient contact shadow. For raised cards.
+ * hairline    : one sub-pixel seam, no depth. For dividers and small pills.
+ * edge        : seam + top light catch. For chips, inputs, secondary buttons.
+ * edge-card   : seam + light catch + ambient contact shadow. For raised cards.
+ * edge-inset  : seam + bottom light catch. For pressed/inset surfaces.
+ * edge-float  : seam + light catch + prominent floating shadow. For FABs, nav.
+ * edge-raised : seam + light catch + deep shadow. For modals/drawers.
  */
 @utility hairline {
   border: 1px solid var(--border-subtle);
+}
+
+@utility hairline-t {
+  border-top: 1px solid var(--border-subtle);
+}
+
+@utility hairline-b {
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 @utility edge {
@@ -163,9 +181,26 @@
   box-shadow: var(--shadow-edge);
 }
 
+@utility edge-inset {
+  border: 1px solid var(--edge-seam);
+  box-shadow: var(--shadow-inset);
+}
+
+@utility edge-float {
+  border: 1px solid var(--edge-seam);
+  box-shadow: var(--shadow-hairline), var(--shadow-float);
+}
+
+@utility edge-raised {
+  border: 1px solid var(--edge-seam);
+  box-shadow: var(--shadow-hairline), var(--shadow-raised);
+}
+
 @utility edge-t {
   border-top: 1px solid var(--border-subtle);
+  box-shadow: inset 0 1px 0 var(--edge-highlight);
 }
+
 
 
 @layer base {
@@ -253,6 +288,7 @@
 @utility slide-card {
   background-color: var(--color-card);
   border-radius: 2rem;
+  border: 1px solid var(--edge-seam);
   box-shadow: var(--shadow-slide);
 }
 
@@ -474,7 +510,9 @@
   transition:
     transform 0.3s cubic-bezier(0.2, 1.4, 0.4, 1),
     background-color 0.3s ease,
-    color 0.3s ease;
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .tag-pop:hover {
   transform: translateY(-2px) rotate(-2deg) scale(1.06);
@@ -762,6 +800,9 @@
 
   --shadow-slide: 0 24px 60px -28px oklch(0 0 0 / 0.65);
   --shadow-lift: 0 12px 30px -16px oklch(0 0 0 / 0.7);
+  --shadow-float: 0 18px 40px -22px oklch(0 0 0 / 0.85);
+  --shadow-raised: 0 28px 60px -32px oklch(0 0 0 / 0.8);
+  --shadow-image: 0 18px 30px oklch(0 0 0 / 0.45);
 
   --edge-highlight: oklch(1 0 0 / 0.07);
   --edge-seam: color-mix(in oklab, var(--border-strong) 90%, transparent);
@@ -769,6 +810,9 @@
   --shadow-edge:
     inset 0 1px 0 var(--edge-highlight), 0 1px 1px -0.5px oklch(0 0 0 / 0.45),
     0 8px 22px -18px oklch(0 0 0 / 0.8);
+  --shadow-inset:
+    inset 0 1px 2px oklch(0 0 0 / 0.35),
+    inset 0 -1px 0 var(--edge-highlight);
 }
 
 

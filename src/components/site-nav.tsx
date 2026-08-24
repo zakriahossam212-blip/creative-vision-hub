@@ -102,7 +102,7 @@ export function SiteNav() {
           reducedMotion ? "transition-none" : "transition-all duration-500"
         } ${
           scrolled
-            ? "max-w-4xl shadow-[0_18px_40px_-22px_oklch(0.28_0.05_265_/_0.55)]"
+            ? "max-w-4xl shadow-[var(--shadow-float)]"
             : "max-w-6xl shadow-[var(--shadow-lift)]"
         }`}
       >
