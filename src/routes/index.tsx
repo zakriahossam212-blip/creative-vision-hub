@@ -1,29 +1,37 @@
 import { createFileRoute } from "@tanstack/react-router";
-
-import { About } from "@/components/about";
-import { Breakdown } from "@/components/breakdown";
-import { Contact } from "@/components/contact";
-import { Hero } from "@/components/hero";
-import { AnimatedChars } from "@/components/motion-text";
-import { ProjectSlide } from "@/components/project-slide";
-import { Reveal } from "@/components/reveal";
-import { Services } from "@/components/services";
-import { SiteNav } from "@/components/site-nav";
-import { projects } from "@/data/projects";
-
-const title = "Mostafa Samir — Healthcare Full-Stack Engineer";
-const description =
-  "Healthcare full-stack engineer building EHR platforms, HL7/FHIR interoperability, telehealth, and patient portals with .NET 8, Angular, React, and Next.js. Based in Tanta, Egypt.";
+import { Toaster } from "sonner";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { Skills } from "@/components/Skills";
+import { Projects } from "@/components/Projects";
+import { Experience } from "@/components/Experience";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { title: "Aaron — Full-Stack Developer | Banking & FinTech Specialist" },
+      {
+        name: "description",
+        content:
+          "Senior full-stack developer building secure, scalable digital banking, payment, and FinTech platforms for banks and fintech challengers.",
+      },
+      { property: "og:title", content: "Aaron — Banking & FinTech Full-Stack Developer" },
+      {
+        property: "og:description",
+        content: "Secure, compliant, high-throughput banking and payment systems — from core ledgers to mobile wallets.",
+      },
+    ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap",
+      },
     ],
   }),
   component: Index,
@@ -31,47 +39,29 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen">
-      <SiteNav />
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <SmoothScroll />
+      <Toaster
+        theme="dark"
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            background: "var(--surface-2)",
+            color: "var(--foreground)",
+            border: "1px solid var(--border)",
+          },
+        }}
+      />
+      <Navbar />
       <main>
         <Hero />
         <About />
-
-        <section id="work" className="px-4 py-8 sm:px-6 lg:py-12">
-          <div className="mx-auto max-w-6xl space-y-4">
-            <div className="dot-grid relative overflow-hidden rounded-[2rem] px-2 py-8 sm:py-12">
-              <div className="flex flex-wrap items-end justify-between gap-4">
-                <div>
-                  <p className="text-xs font-semibold tracking-[0.2em] text-brand-orange uppercase">
-                    Selected work
-                  </p>
-                  <AnimatedChars
-                    as="h2"
-                    text="Portfolio"
-                    pillIndex={5}
-                    stagger={44}
-                    className="display-xl mt-4 block"
-                  />
-                </div>
-                <p className="sd-rise max-w-sm text-sm leading-relaxed text-muted-foreground">
-                  EHR platforms, telehealth and remote monitoring, HL7/FHIR interoperability, and
-                  patient-facing portals.
-                </p>
-              </div>
-            </div>
-
-            {projects.map((project) => (
-              <Reveal key={project.slug} variant="tilt">
-                <ProjectSlide project={project} />
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        <Breakdown />
-        <Services />
+        <Skills />
+        <Projects />
+        <Experience />
         <Contact />
       </main>
+      <Footer />
     </div>
   );
 }
