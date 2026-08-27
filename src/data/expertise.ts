@@ -1,61 +1,61 @@
-import { Landmark, ArrowLeftRight, ShieldCheck, LayoutPanelTop } from "lucide-react";
+import { Server, Activity, ShieldCheck, LayoutPanelTop } from "lucide-react";
 
 export const expertise = [
   {
-    title: "Core Banking Systems",
-    icon: Landmark,
+    title: "Microservices & Clean Architecture",
+    icon: Server,
     description:
-      "Ledgers, account structures, postings and back-office operations designed for accuracy under load.",
-    keywords: ["Ledger UX", "Back-office", "Data density"],
+      ".NET 8 service boundaries designed with Clean Architecture and DDD — maintainable systems that survive years of change.",
+    keywords: [".NET 8", "DDD", "Repository + UoW"],
   },
   {
-    title: "Payments & Money Movement",
-    icon: ArrowLeftRight,
+    title: "Real-time Platforms",
+    icon: Activity,
     description:
-      "Authorization flows, routing logic, settlement and reconciliation surfaces that stay readable at scale.",
-    keywords: ["Card rails", "ACH / SEPA", "Reconciliation"],
+      "High-throughput SignalR backends streaming live data across 1,000+ endpoints — transferable to payment and risk monitoring.",
+    keywords: ["SignalR", "High throughput", "Live telemetry"],
   },
   {
-    title: "Compliance & Risk Interfaces",
+    title: "Multi-Tenant Security",
     icon: ShieldCheck,
     description:
-      "KYC, AML monitoring, case management and audit trails — clarity when the stakes are regulatory.",
-    keywords: ["KYC / AML", "Case review", "Audit"],
+      "Secure tenant data isolation with hierarchical RBAC, OAuth 2.0 and JWT — the baseline for banking-grade platforms.",
+    keywords: ["Multi-tenancy", "RBAC", "OAuth 2.0 / JWT"],
   },
   {
-    title: "Fintech Product Design",
+    title: "Performance Engineering",
     icon: LayoutPanelTop,
     description:
-      "Zero-to-one product design for financial products, from positioning to shipped interface systems.",
-    keywords: ["0→1", "Design systems", "Mobile"],
+      "Database tuning, indexing and Redis caching that delivered a 300% improvement in query performance under production load.",
+    keywords: ["SQL tuning", "Redis", "+300%"],
   },
 ];
 
 export const process = [
   {
     step: "01",
-    title: "Domain immersion",
+    title: "Understand the domain",
     description:
-      "I start inside the system — ledgers, rails, policies, regulation. No design decisions before the mechanics are understood.",
+      "Before code: data model, tenancy boundaries, compliance and security requirements are mapped precisely.",
   },
   {
     step: "02",
-    title: "Structure & flows",
+    title: "Architect for scale",
     description:
-      "Information architecture, state models and edge cases mapped with engineering before a single screen is styled.",
+      "Service boundaries, contracts and consistency guarantees defined with Clean Architecture and DDD.",
   },
   {
     step: "03",
-    title: "Interface craft",
+    title: "Build & harden",
     description:
-      "High-fidelity, token-driven interfaces built for density, accessibility and long working sessions.",
+      "Implementation with RBAC, OAuth 2.0 / JWT, structured logging, and performance budgets from day one.",
   },
   {
     step: "04",
-    title: "Ship & refine",
+    title: "Ship & optimize",
     description:
-      "Hands-on delivery with the build team, then iteration against real operator and customer behaviour.",
+      "Automated CI/CD on Azure DevOps, containerized delivery, then measured tuning against real production load.",
   },
 ];
 
-export const principles = ["Clarity", "Trust", "Precision", "Scalability"];
+export const principles = ["Precision", "Security", "Scalability", "Clean Architecture"];
