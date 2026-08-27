@@ -33,29 +33,30 @@ export function Hero() {
           variants={item}
           className="mt-8 max-w-3xl text-4xl leading-[1.08] sm:text-5xl md:text-6xl lg:text-[4.25rem]"
         >
-          Designing the infrastructure
+          Building the systems
           <br />
-          behind <span className="brand-text">modern finance.</span>
+          that power <span className="brand-text">modern finance.</span>
         </motion.h1>
 
         <motion.p variants={item} className="mt-7 max-w-xl text-base md:text-lg leading-relaxed text-muted-foreground">
-          I design core banking platforms, payment systems, compliance tooling and fintech
-          products — for the companies building the next generation of financial services.
+          Senior Full Stack Engineer with 4+ years specializing in scalable microservices,
+          multi-tenant architectures, and real-time platforms — designed for the reliability and
+          security demands of financial systems.
         </motion.p>
 
         <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-3">
           <a
-            href="#work"
+            href="#projects"
             className="group inline-flex items-center gap-2 rounded-full border border-border-strong bg-brand/12 px-5 py-3 text-sm font-medium transition-all hover:bg-brand/22"
           >
             View selected work
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </a>
           <a
-            href="#about"
+            href="#contact"
             className="group inline-flex items-center gap-2 rounded-full hairline px-5 py-3 text-sm text-muted-foreground transition-colors hover:border-border-strong hover:text-foreground"
           >
-            About me
+            Get in touch
             <ArrowUpRight className="h-4 w-4" />
           </a>
         </motion.div>
@@ -65,9 +66,9 @@ export function Hero() {
           className="mt-16 grid gap-px overflow-hidden rounded-2xl hairline sm:grid-cols-3"
         >
           {[
-            { k: "9 yrs", v: "Inside banking & fintech products" },
-            { k: "24+", v: "Platforms shipped to production" },
-            { k: "$1.2B+", v: "Volume moving through my interfaces" },
+            { k: "4+ yrs", v: "Building production .NET systems" },
+            { k: "1,000+", v: "Real-time endpoints served via SignalR" },
+            { k: "+300%", v: "Database performance improvement" },
           ].map((s) => (
             <div key={s.k} className="bg-surface/40 p-6">
               <div className="text-2xl font-semibold">{s.k}</div>
@@ -77,7 +78,7 @@ export function Hero() {
         </motion.div>
 
         <motion.p variants={item} className="mono-label mt-10">
-          Banking infrastructure • Fintech • Compliance UX
+          .NET 8 • Microservices • Multi-Tenant • Real-time Systems
         </motion.p>
       </motion.div>
     </section>
